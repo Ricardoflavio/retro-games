@@ -1,0 +1,326 @@
+@charset "UTF-8";
+
+/* Propriedades que se aplicam a todos os elementos da página. */
+* {
+	/* Remove a margem externa de todos os lados do elemento. */
+	margin: 0;
+
+	/* Remove o espaçamento interno de todos os lados do elemento. */
+	padding: 0;
+
+	/* Inclui o preenchimento e a borda na largura e altura. */
+	box-sizing: border-box;
+}
+
+body {
+	background: linear-gradient(120deg, #662ffffd 15%, #ff34d2 40%, #ffb534 60%, #028f5e 100%);
+	/* Exibição flexível.                          */
+	/* Torna o elemento um flex container          */
+	/* e os seus elementos internos em flex-itens. */
+	display: flex;
+
+	/* Quebra de linha quando os itens não couberem na largura da tela. */
+	flex-wrap: wrap;
+
+	/* Junção de flex-grow, flex-shrink e flex-basis.  */
+	/* flex-grow – Habilidade de um flex item crescer. */
+	/* flex-shrink - Capacidade de redução do item.    */
+	/* flex-basis – Tamanho inicial do item.           */
+	flex: 1 1 100vw;
+
+	/* Margem de todos os lados. */
+	margin: 3px;
+}
+
+button {
+	display: inline;
+	border: none;
+	width: 120px;
+}
+
+/* Formatação comum entre os elementos. */
+header,
+nav,
+main,
+aside,
+footer {
+
+	display: flex;
+	margin: 3px;
+	flex: 1 1 100vw;
+}
+
+/* Seletores para formatação individual. */
+
+header {
+
+	height: 132px;
+}
+
+.icon-logo {
+
+	transition: all 1000ms ease-in-out;
+	transform: scale(1, 01) rotate(-360deg);
+	font-size: min(1vh);
+	flex-wrap: wrap;
+	position: relative;
+	margin-left: 132px;
+	margin-top: 6px;
+
+}
+
+.history {
+
+	margin-left: 360px;
+	text-align: center;
+	font-family: Arial, Helvetica, sans-serif;
+}
+
+#openMenu,
+#closeMenu {
+	/* Remove a borda. */
+	border: none;
+
+	/* Remove a cor de fundo. */
+	background: none;
+
+	/* Tamanho da fonte. */
+	font-size: 30px;
+
+	/* Espessura da forte. */
+	font-weight: bold;
+
+	/* Margem ao redor do elemento              */
+	/* (superior, direito, inferior e esquerdo) */
+	padding: 0px 5px 0px 5px;
+
+	/* Muda o cursor do mouse para ponteiro.*/
+	cursor: pointer;
+
+	/* Oculta o elemento. */
+	display: none;
+}
+
+nav {
+
+	/* Alinha os itens na vertical. */
+	justify-content: center;
+
+	/* Alinha os itens na horizontal. */
+	align-items: center;
+	max-width: 80%;
+	/* Altura do elemento. */
+	height: 60px;
+
+}
+
+nav a {
+	font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+
+	border: solid 1px #06060642;
+	border-radius: 6px;
+	margin: 15px;
+	font-size: 18pt;
+
+}
+
+
+
+main {
+	/* Realizar a subtração de 100% da altura vertical menos a soma    */
+	/* da altura dos elementos ( 400px ) com as suas margens ( 36px ). */
+	justify-content: center;
+	height: calc(205vh - 560px);
+	border-radius: 3px;
+	background-color: rgba(221, 238, 123, 0.226);
+	grid-template-columns: repeat(1, 1fr 1fr 1fr);
+	display: grid;
+
+
+}
+
+
+.img-port {
+	max-width: 100%;
+	height: 306px;
+	background-size: cover;
+	background-position: 100% 0%;
+	transition: 6s;
+	cursor: pointer;
+	border-radius: 3px;
+	position: relative;
+
+
+
+}
+
+.img-port.hover {
+	background-position: 100%;
+	transition: .10s;
+}
+
+.img-port:hover {
+	background-position: 100% 100%;
+}
+
+.overlay {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background-color: #32333233;
+
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	font-size: 48px;
+	color: #ffffff41;
+	opacity: 0;
+	transition: .08;
+
+}
+
+.overlay:hover {
+	opacity: 1;
+}
+
+.games {
+
+	margin: 3px;
+	height: 30px;
+	
+}
+
+
+h1,
+h3,
+p {
+
+	justify-content: center;
+	text-align: center;
+}
+
+
+
+aside {
+	background-color: rgba(72, 75, 69, 0.233);
+	height: 231px;
+	font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+	padding: 50px;
+
+}
+
+.footer {
+	align-items: center;
+
+	margin-left: 666px;
+	height: 124px;
+
+
+}
+
+.footer img {
+	margin-top: 27px;
+}
+
+a {
+	/* Remove a decoração padrão do elemento. */
+	text-decoration: none;
+	color: #060606;
+
+	background: linear-gradient(120deg, #ff34d2 40%, #ffb534 60%, #028f5e 100%);
+
+}
+
+/* Altera o estilo dos elementos para serem apresentados */
+/* em telas menores que 9px. */
+@media only screen and (max-width: 952px) {
+
+	#openMenu,
+	#closeMenu {
+		/* Retorna a visibilidade padrão. */
+		display: block;
+	}
+
+	#openMenu {
+		/* Espaço a esquerda será preenchido automaticamente
+		   colocando os itens a direita. */
+		margin-left: auto;
+	}
+
+	#closeMenu {
+		/* Torna a posição do elemento fixa. */
+		position: fixed;
+
+		/* Dispõe o elemento a 15px da esquerda. */
+		right: 15px;
+
+		/* Dispõe o elemento a 15px do topo. */
+		top: 15px;
+	}
+
+	nav {
+		/* Torna a posição do elemento fixa. */
+		position: fixed;
+
+		/* Dispõe os itens em coluna. */
+		flex-direction: column;
+
+		/* Ocupa 100% da largura da tela de exibição. */
+		width: 100vw;
+
+		/* Ocupa 100% da altura da tela de exibição. */
+		height: 100vh;
+
+		/* Cor em RGB, mais transparência. */
+		background: rgba(255, 255, 255, 0.8);
+
+		/* Alinha os itens na vertical. */
+		justify-content: center;
+
+		/* Alinha os itens na horizontal. */
+		align-items: center;
+
+		/* Remove a margem externa de todos os lados do elemento. */
+		margin: 0;
+
+		/* Oculta o elemento. */
+		display: none;
+
+		/* Invisivel */
+		opacity: 0;
+
+		/* Velocidade de transição de um estado para outro. */
+		transition: 0.3s;
+	}
+
+	img {
+		max-width: 100%;
+	}
+
+	main {
+		/* Realizar a subtração de 100% da altura vertical menos a soma    */
+		/* da altura dos elementos ( 300px ) com as suas margens ( 30px ). */
+		height: calc(100vh - 330px);
+		margin: 15px;
+	}
+    
+	
+	.img-port {
+
+		height: calc(50vh - 330px);
+
+
+	}
+
+	.overlay {
+
+		max-width: 100%;
+		height: calc(50vh - 330px);
+
+	}
+
+
+
+}
